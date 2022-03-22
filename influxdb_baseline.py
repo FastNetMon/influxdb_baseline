@@ -28,7 +28,7 @@ for point in all_hosts.get_points():
         all_hosts_dict[ point['value'] ] = 1
 
 
-print "Extracted", len(all_hosts_dict), "hosts from InfluxDB"
+print ("Extracted", len(all_hosts_dict), "hosts from InfluxDB")
 
 query_select_fields = []
 
@@ -62,11 +62,11 @@ for host in sorted(hosts_to_process):
         if k == "time":
             continue
 
-        if peak_values_across_al_hosts[k] &lt; v:
+        if peak_values_across_al_hosts[k] < v:
             peak_values_across_al_hosts[k] = v
         # print k, v
 
-print "Number of hosts with any metrics availible", non_empty_host
-print "Peak values for all your hosts"
+print ("Number of hosts with any metrics availible", non_empty_host)
+print ("Peak values for all your hosts")
 for k, v in peak_values_across_al_hosts.items():
-    print "%-20s %s" % (k, v)
+    print ("%-20s %s" % (k, v))
