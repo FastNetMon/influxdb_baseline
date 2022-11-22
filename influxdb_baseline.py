@@ -12,6 +12,8 @@ per_protocol_incoming = ['fragmented_packets_incoming', 'tcp_packets_incoming', 
 per_protocol_outgoing = ['fragmented_packets_outgoing', 'tcp_packets_outgoing', 'tcp_syn_packets_outgoing', 'udp_packets_outgoing', 'icmp_packets_outgoing', 'fragmented_bits_outgoing', 'tcp_bits_outgoing', 'tcp_syn_bits_outgoing', 'udp_bits_outgoing', 'icmp_bits_outgoing']
 
 # Switch to True if you need per protocol thresholds too
+# Also you need to enable following option for FastNetMon:
+# sudo fcli set main influxdb_per_protocol_counters true
 process_per_protocol_counters = False 
 
 if process_per_protocol_counters:
