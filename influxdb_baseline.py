@@ -29,7 +29,6 @@ all_hosts_dict = {}
 for point in all_hosts.get_points():
         all_hosts_dict[ point['value'] ] = 1
 
-
 print ("Extracted", len(all_hosts_dict), "hosts from InfluxDB")
 
 query_select_fields = []
@@ -64,6 +63,9 @@ for host in sorted(hosts_to_process):
         if k == "time":
             continue
 
+        if v == None:
+            continue        
+            
         if peak_values_across_all_hosts[k] < v:
             peak_values_across_all_hosts[k] = v
         # print k, v
