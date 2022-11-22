@@ -39,10 +39,10 @@ query_select_field = ",".join(query_select_fields)
 
 hosts_to_process = all_hosts_dict.keys()
 
-peak_values_across_al_hosts = {}
+peak_values_across_all_hosts = {}
 
 for metrics in all_metrics:
-    peak_values_across_al_hosts[ "max_" + metrics] = 0
+    peak_values_across_all_hosts[ "max_" + metrics] = 0
 
 # Number of hosts with any availible metrics for specified time range
 non_empty_host = 0
@@ -62,11 +62,11 @@ for host in sorted(hosts_to_process):
         if k == "time":
             continue
 
-        if peak_values_across_al_hosts[k] < v:
-            peak_values_across_al_hosts[k] = v
+        if peak_values_across_all_hosts[k] < v:
+            peak_values_across_all_hosts[k] = v
         # print k, v
 
 print ("Number of hosts with any metrics availible", non_empty_host)
 print ("Peak values for all your hosts")
-for k, v in peak_values_across_al_hosts.items():
+for k, v in peak_values_across_all_hosts.items():
     print ("%-20s %s" % (k, v))
